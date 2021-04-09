@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 //oi: definindo o caminho do requerimento/endereço da pág.
-@WebServlet(urlPatterns = "/oi") //urlPatterns define o nome do Servlet
+@WebServlet(urlPatterns = "/oi") //urlPatterns define o nome do Servlet, caminho da pág.
 public class OiMundoServlet extends HttpServlet{
 	
 	@Override //essa annotation sobrescreve um método
