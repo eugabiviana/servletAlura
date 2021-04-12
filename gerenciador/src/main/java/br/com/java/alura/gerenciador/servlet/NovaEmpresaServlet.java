@@ -1,8 +1,8 @@
 package br.com.java.alura.gerenciador.servlet;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -28,8 +28,17 @@ public class NovaEmpresaServlet extends HttpServlet {
 		Banco banco = new Banco();
 		banco.adiciona(empresa);
 		
-		PrintWriter out = response.getWriter();
-		out.println("<html><body>Empresa " +nomeEmpresa+ " cadastrada com sucesso!</body></html>");
+		//chamar o JSP:usar uma requisição que entenda que a resposta está no JSP e imprima no navegador com os dados desse arquivo.
+		RequestDispatcher rd = request.getRequestDispatcher("/novaEmpresaCriada.jsp");
+		request.setAttribute("empresa", empresa.getNome());
+		rd.forward(request, response); //pega a requisição e manda a resposta para o navegador, lendo o que está definido no JSP.
+		
+		
+		
+		
+//		Essa parte agora funciona e está no arquivo novaEmpresaCriada.jsp!
+//		PrintWriter out = response.getWriter();
+//		out.println("<html><body>Empresa " +nomeEmpresa+ " cadastrada com sucesso!</body></html>");
 	}
 
 }
