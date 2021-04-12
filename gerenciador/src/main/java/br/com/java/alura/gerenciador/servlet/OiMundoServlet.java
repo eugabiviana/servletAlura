@@ -13,6 +13,10 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet(urlPatterns = "/oi") //urlPatterns define o nome do Servlet, caminho da pág.
 public class OiMundoServlet extends HttpServlet{
 	
+	public OiMundoServlet() {
+		System.out.println("Criando Oi Mundo Servlet");
+	}
+	
 	@Override //essa annotation sobrescreve um método
 	protected void service(HttpServletRequest req, HttpServletResponse resp) throws IOException {
 		 //Em resp.getWriter é definido o que será a resposta. Como nesse caso é texto, getWriter. Se fosse imagem, seria outro get.
